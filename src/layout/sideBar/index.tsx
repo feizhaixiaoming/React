@@ -11,12 +11,13 @@ export const SideBar = () => {
   var links = [...routes]
   const location = useLocation()
   const navigate = useNavigate()
+  console.log(location)
   const pathArr = location.pathname.split('/').filter(item => item !== '')
   if (pathArr.length == 1) {
     pathArr[0] = '/' + pathArr[0]
   }
   if (pathArr.length == 0) {
-    pathArr[0] = '/' + pathArr[0]
+    pathArr[0] = '/'
   }
   // 默认选中
   var selectK = []
@@ -50,6 +51,7 @@ export const SideBar = () => {
       }
     }
   })
+  console.log(pathArr)
   const [select, setSelect] = useState(selectK)
   const [openKeys, setOpenKeys] = useState(okeys);
   const [open, setOpen] = useState(openK)
@@ -103,7 +105,7 @@ export const SideBar = () => {
 
   return (
     <div className={styles.sideBar}>
-      <div className={styles.logo}>我是logo</div>
+      <div className={styles.logo}>React Demo</div>
         <Menu mode="inline"
               theme="dark" onSelect={(item) => changeRouter(item)} openKeys={open} onOpenChange={onOpenChange}
               defaultSelectedKeys={select}>

@@ -7,6 +7,7 @@ import {useState} from "react";
 export const AppMain = () => {
   var links = [...routes]
   // 路由注册
+  console.log(links)
   const routeList = links.map(item => {
     if(item.children){
       return (
